@@ -1,0 +1,27 @@
+# Temporary fixed repositories
+# to avoid upgrade to CentOS 7.4
+#
+# See https://github.com/NethServer/dev/issues/5350
+
+[base]
+name=CentOS-7.3.1611 - Base - Vault
+mirrorlist=http://packages.nethserver.org/temporary-mirror.php?release=$releasever&arch=$basearch&repo=base
+# baseurl=http://update.nethesis.it/nethserver/7.3.1611/nh-base/$basearch
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+
+#released updates 
+[updates]
+name=CentOS-7.3.1611 - Updates - Vault
+mirrorlist=http://packages.nethserver.org/temporary-mirror.php?release=$releasever&arch=$basearch&repo=updates
+# baseurl=http://update.nethesis.it/nethserver/7.3.1611/nh-updates/$basearch
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+
+#additional packages that may be useful
+[extras]
+name=CentOS-7.3.1611 - Extras - Vault
+mirrorlist=http://packages.nethserver.org/temporary-mirror.php?release=$releasever&arch=$basearch&repo=extras
+# baseurl=http://update.nethesis.it/nethserver/7.3.1611/nh-extras/$basearch
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
