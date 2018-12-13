@@ -73,12 +73,20 @@ function end {
 }
 
 expected_version="$(</etc/e-smith/db/configuration/force/sysconfig/Version)"
+ns_version=$(echo $expected_version | tr -dc '0-9')
+centos_version=$(cat /etc/system-release | tr -dc '0-9')
 
 if [[ -n "${expected_version}" ]] && ! grep -q -F "${expected_version}" /etc/system-release; then
     log "Invalid CentOS release: $(</etc/system-release)"
     echo "Invalid CentOS release: $(</etc/system-release)"
     echo "The expected version is ${expected_version}"
-    echo "Update the nethserver-release RPM to the latest available version"
+    echo
+    if [ $centos_version -lt $ns_version ]; then
+        echo "Try to update CentOS then execute nethserver-install again."
+    else
+        echo "Are you sure NethServer $centos_version is already available?"
+        echo "Try to update the nethserver-release RPM to the latest available version."
+    fi
     exit 1
 fi
 
