@@ -88,6 +88,7 @@ if [[ -n "${expected_version}" ]] && ! grep -q -F "${expected_version}" /etc/sys
         echo
         if [ $? -gt 0 ]; then
             echo "[ERROR] Updated failed, try running again $0"
+            exit 1
         else
             echo "CentOS update complete!"
         fi
