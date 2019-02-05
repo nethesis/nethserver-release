@@ -1,5 +1,5 @@
 {
-    our $communityEnabled = ! defined $subscription || ! $subscription{'Secret'};
+    our $communityEnabled = ! defined $subscription || ! $subscription{'SystemId'};
     '';
 }
 [nethserver-base]
