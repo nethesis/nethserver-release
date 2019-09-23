@@ -1,5 +1,5 @@
-%define distroversion 7.6.1810
-%define distrorelease final
+%define distroversion 7.7.1908
+%define distrorelease rc1
 
 Summary: NethServer YUM repo configuration
 Name: nethserver-release
@@ -37,6 +37,9 @@ rm -rf %{buildroot}
 %dir %{_nseventsdir}/%{name}-update
 
 %changelog
+* Wed Sep 25 2019 Davide Principi <davide.principi@nethesis.it> - 7-14
+- NethServer 7.7.1908 rc1
+
 * Fri Feb 22 2019 Davide Principi <davide.principi@nethesis.it> - 7-13
 - Ultimate software origin policy -- NethServer/dev#5704
 
