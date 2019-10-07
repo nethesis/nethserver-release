@@ -1,4 +1,8 @@
 {
+    # extra gpgkey's for AltArch
+    our $armhfp_gpgkey = ( -e '/etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-AltArch-Arm32' ) ? "\n       file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-AltArch-Arm32" : "";
+    our $aarch64_gpgkey = ( -e '/etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7-aarch64' ) ? "\n       file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7-aarch64" : "";
+
     our $communityEnabled = $subscription{'SystemId'} ? '0' : '1';
     '';
 }
@@ -38,7 +42,7 @@ mirrorlist=http://mirrorlist.nethserver.org/?release=$releasever&repo=ce-base&ar
 #baseurl=http://mirror.centos.org/centos/$nsrelease/os/$basearch/
 gpgcheck=1
 repo_gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7 {$armhfp_gpgkey} {$aarch64_gpgkey}
 enabled={$communityEnabled}
 
 [ce-updates]
@@ -47,7 +51,7 @@ mirrorlist=http://mirrorlist.nethserver.org/?release=$releasever&repo=ce-updates
 #baseurl=http://mirror.centos.org/centos/$nsrelease/updates/$basearch/
 gpgcheck=1
 repo_gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7 {$armhfp_gpgkey} {$aarch64_gpgkey}
 enabled={$communityEnabled}
 
 [ce-extras]
@@ -56,7 +60,7 @@ mirrorlist=http://mirrorlist.nethserver.org/?release=$releasever&repo=ce-extras&
 #baseurl=http://mirror.centos.org/centos/$nsrelease/extras/$basearch/
 gpgcheck=1
 repo_gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7 {$armhfp_gpgkey} {$aarch64_gpgkey}
 enabled={$communityEnabled}
 
 [ce-sclo-sclo]
