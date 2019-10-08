@@ -3,7 +3,7 @@
     our $repo_gpgcheck = '1';
     our $armhfp_gpgkey = "";
     our $aarch64_gpgkey = "";
-        if ( -e '/etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-AltArch-Arm32' ) {
+    if ( -e '/etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-AltArch-Arm32' ) {
        $armhfp_gpgkey =  "\n       file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-AltArch-Arm32";
        $repo_gpgcheck = '0';
     }
